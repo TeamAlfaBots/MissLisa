@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: girl-chatbot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      # sirf EK bharo: BOT_TOKEN (bot) ya STRING_SESSION (tumhara account + dashboard); dusre ko khali chhodo
+      - key: BOT_TOKEN
+        sync: false
+      - key: STRING_SESSION
+        sync: false
+      - key: OWNER_IDS
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: DEEPSEEK_MODEL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: PERSONA_NAME
+        value: Lisa
+      - key: LISA_DATASET
+        value: "1"
+      - key: REPLY_DELAY
+        value: "3"
+      - key: HISTORY_LIMIT
+        value: "20"
+      - key: MEMORY_DAYS
+        value: "90"
